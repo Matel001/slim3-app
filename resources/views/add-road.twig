@@ -1,0 +1,55 @@
+{% extends 'layout/app.twig' %}
+{% block title %}Dodaj trasę{% endblock %}
+
+{% block content %}
+    <div class="row h-100">
+        <div class="col-12 justify-content-center align-self-center">
+            <form action="{{ path_for('add.road') }}" method="post" class="form-horizontal">
+                <div class="form-group row">
+                    <label for="load-place" class="col-sm-3 control-label ">Miejsce załadunku</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="load-place" name="load_place" class="form-control {{ errors.load_place ? 'is-invalid' : ''}}">
+                        {% if errors.load_place %}
+                            <div class="invalid-feedback">{{ errors.load_place | first }}</div>
+                        {% endif %}
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <label for="load-date" class="col-sm-3 control-label">Data załadunku</label>
+                    <div class="col-sm-9">
+                        <input type="date" id="load-date" name="load_date" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="unload-place" class="col-sm-3 control-label">Miejsce rozładunku</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="unload-place" name="unload_place" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="unload-date" class="col-sm-3 control-label">Data planowanego rozładunku</label>
+                    <div class="col-sm-9">
+                        <input type="date" id="unload-date" name="unload_date" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="spedition" class="col-sm-3 control-label">Spedycja</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="spedition" name="spedition" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="comment" class="col-sm-3 control-label">Komentarz</label>
+                    <div class="col-sm-9">
+                        <textarea id="comment" class="form-control" name="comment" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="form-group row justify-content-center">
+                    <input type="submit" id="submit" class="btn btn-primary w-50" value="Wyślij">
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
